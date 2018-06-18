@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-container>
+    <v-container grid-list-xs>
       <router-view/>
     </v-container>
   </div>
