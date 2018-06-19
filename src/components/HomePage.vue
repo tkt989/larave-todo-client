@@ -28,6 +28,8 @@
           </v-layout>
         </li>
       </ul>
+
+      <p @click="$store.dispatch('deleteAccount', { router: $router })" class="deleteAccount">delete account</p>
     </div>
   </v-layout>
 </template>
@@ -51,6 +53,7 @@ export default {
   },
 
   created() {
+    this.$store.dispatch('validate', { router: this.$router })
     this.$store.dispatch('init')
   }
 }
@@ -75,5 +78,10 @@ li {
 
 .doned {
   text-decoration: line-through;
+}
+
+.deleteAccount {
+  cursor: pointer;
+  color: red;
 }
 </style>

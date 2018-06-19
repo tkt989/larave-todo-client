@@ -14,7 +14,7 @@
       <v-btn @click="$store.dispatch('login', { router: $router, user: { email, password } })">Login</v-btn>
       <v-btn @click="$router.push('register')">Register</v-btn>
 
-      <div v-if="showError" class="error">{{error}}</div>
+      <div v-if="showError" class="errorMessage">{{error}}</div>
     </v-form>
   </v-layout>
 </template>
@@ -46,7 +46,7 @@ export default {
   width: 300px;
 }
 
-.error {
+.errorMessage {
   color: red;
 }
 </style>

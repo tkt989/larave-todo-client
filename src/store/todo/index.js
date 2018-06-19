@@ -8,6 +8,7 @@ export default {
 
   mutations: {
     addTodos(state, { todos }) {
+      state.todos = []
       todos.forEach(todo => state.todos.push(todo))
     },
 

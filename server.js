@@ -19,8 +19,13 @@ function auth(req, res) {
 }
 
 server.post('/login', auth)
-
 server.post('/register', auth)
+
+server.post('/deleteAccount', (req, res) => {
+  res.jsonp({
+    code: 'success'
+  })
+})
 
 server.use(router)
 server.listen(8888, function() {

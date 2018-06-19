@@ -2,6 +2,7 @@ import http from '../../http'
 
 export default {
   state: {
+    token: null,
     error: null
   },
   mutations: {
@@ -51,13 +52,19 @@ export default {
 
     validate({ commit, state }, { router }) {
       let token = state.token
-
       http
-        .post('/validate', { token })
+        .get('/validate', { token })
         .then(() => {})
         .catch(e => {
           router.push('/')
         })
+    },
+
+    deleteAccount({ commit, state }, { router }) {
+      let token = state.token
+      http.post('/deleteAccount', { token }).then(() => {
+        router.push('/')
+      })
     }
   }
 }
