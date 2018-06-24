@@ -8,7 +8,9 @@
 
 <script>
 export default {
-  name: 'App'
+  mounted() {
+    this.$store.dispatch('validate', { router: this.$router, to: '/home' })
+  }
 }
 </script>
 

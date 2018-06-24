@@ -1,5 +1,10 @@
 import axios from 'axios'
 
-export default axios.create({
-  baseURL: 'http://localhost:8888'
+export let http = axios.create({
+  baseURL:
+    process.env.NODE_ENV == 'production' ? '/api' : 'http://localhost:8000/api'
 })
+
+export function setToken(val) {
+  http.defaults.headers = { Authorization: 'Bearer ' + val }
+}
